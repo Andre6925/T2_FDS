@@ -1,6 +1,5 @@
 package br.pucrs.t2.exemplo.Domain.Entities;
 
-import java.util.List;
 
 import javax.xml.crypto.Data;
 
