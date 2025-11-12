@@ -1,4 +1,8 @@
-package br.pucrs.t2.exemplo;
+package br.pucrs.t2.exemplo.Domain.Entities;
+
+import java.sql.Date;
+
+import javax.xml.crypto.Data;
 
 public class Venda{
     private long num;
@@ -24,7 +28,7 @@ public class Venda{
     public Date getData(){
         return this.data;
     }
-    public void setData(Data data){
+    public void setData(Date data){
         this.data = data;
     }
 

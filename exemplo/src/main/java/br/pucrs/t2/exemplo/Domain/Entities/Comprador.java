@@ -1,4 +1,4 @@
-package br.pucrs.t2.exemplo;
+package br.pucrs.t2.exemplo.Domain.Entities;
 
 public class Comprador{
     private String pais;
