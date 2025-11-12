@@ -1,23 +1,26 @@
 package br.pucrs.t2.exemplo.Domain.Entities;
 
-
-import javax.xml.crypto.Data;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.sql.Date;
+import java.time.Instant;
 
 import jakarta.persistence.*;
 
 @Entity
 public class Fornecedor {
-    private Data dataFundacao;
+    @Id
+    private Date dataFundacao;
     
-    public Fornecedor(Data dataFundacao){
+    public Fornecedor(Date dataFundacao){
         this.dataFundacao = dataFundacao;
     }
 
-    public Data getDataFundacao() {
+    public Date getDataFundacao() {
         return dataFundacao;
     }
 
-    public void setDataFundacao(Data dataFundacao) {
+    public void setDataFundacao(Date dataFundacao) {
         this.dataFundacao = dataFundacao;
     }
 }

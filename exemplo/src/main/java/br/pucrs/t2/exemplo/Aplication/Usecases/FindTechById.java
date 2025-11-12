@@ -1,9 +1,12 @@
 package br.pucrs.t2.exemplo.Aplication.Usecases;
 
+import org.springframework.stereotype.Service;
+
 import br.pucrs.t2.exemplo.Aplication.Dtos.TecnologiaDTO;
 import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
 
+@Service
 public class FindTechById {
     private final ITecnologiaRepository tecnologiaRepo;
 
