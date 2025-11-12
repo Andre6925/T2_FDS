@@ -2,8 +2,12 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 
 import java.sql.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class Venda{
+    @Id
     private long num;
     private Date data;
     private double valorFinal;

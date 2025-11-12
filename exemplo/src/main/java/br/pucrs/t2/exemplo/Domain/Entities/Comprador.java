@@ -1,5 +1,8 @@
 package br.pucrs.t2.exemplo.Domain.Entities;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Comprador{
     private String pais;
     private String email;
