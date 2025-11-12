@@ -2,7 +2,6 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 
 import java.sql.Date;
 
-import javax.xml.crypto.Data;
 
 public class Venda{
     private long num;
