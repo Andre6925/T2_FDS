@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.pucrs.t2.exemplo.Aplication.Usecases.FindTechById;
 import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
+import br.pucrs.t2.exemplo.Domain.Entities.Venda;
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
+import br.pucrs.t2.exemplo.Domain.Persistence.IVendaRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ACMEController {
     private final FindTechById findTechById;
     private ITecnologiaRepository tecnologia;
+    private IVendaRepository venda;
 
     @Autowired
     public ACMEController(FindTechById findTechById, ITecnologiaRepository tecnologia){
@@ -38,5 +41,9 @@ public class ACMEController {
         return tecnologia.getTecnologiaById(id);
     }
     
+    @GetMapping("/vendabynum/{num}")
+    public Venda getVendaByNum(@PathVariable long num) {
+        return venda.getVendaById(num);
+    }
 }
     

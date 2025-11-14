@@ -1,9 +1,6 @@
 package br.pucrs.t2.exemplo.Domain.Entities;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.sql.Date;
-import java.time.Instant;
 
 import jakarta.persistence.*;
 
