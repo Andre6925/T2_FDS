@@ -12,7 +12,7 @@ public class AddTechUC {
         this.tecnologiaRepo = tecnologiaRepo;
     }
 
-    public static boolean execute(TecnologiaDTO dto) {
+    public boolean execute(TecnologiaDTO dto) {
         if (dto == null || dto.getId() <= 0) {
             return false;
         }
