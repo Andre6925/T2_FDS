@@ -33,5 +33,4 @@ public class TecnologiaDTO {
     public static TecnologiaDTO fromTecnologia(Tecnologia tecnologia){
         return new TecnologiaDTO(tecnologia.getId(), tecnologia.getDescricao(), tecnologia.getValorBase());
     }
-
 }
