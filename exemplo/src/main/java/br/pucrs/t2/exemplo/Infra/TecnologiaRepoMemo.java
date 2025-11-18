@@ -27,15 +27,23 @@ public class TecnologiaRepoMemo implements ITecnologiaRepository {
     }
 
     @Override 
-    public List<Tecnologia> getTecnologias(){
+    public List<Tecnologia> getTecnologias() {
         return tecnologias;
     }
 
     @Override
-    public Tecnologia getTecnologiaById(long id){
+    public Tecnologia getTecnologiaById(long id) {
         return tecnologias.stream()
                 .filter(t -> t.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public boolean addTecnologia(Tecnologia tecnologia) {
+        if (getTecnologiaById(tecnologia.getId()) != null){
+            return false;
+        }
+        return tecnologias.add(tecnologia);
     }
 }
