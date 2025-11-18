@@ -1,19 +1,28 @@
 package br.pucrs.t2.exemplo.Infra;
 
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
+import jakarta.annotation.PostConstruct;
 import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
 
 @Repository
 public class TecnologiaRepoMemo implements ITecnologiaRepository { 
-    private List<Tecnologia> tecnologias;
+  private final List<Tecnologia> tecnologias = new ArrayList<>();
+
 
     public TecnologiaRepoMemo(){
-        tecnologias.add(new Tecnologia(001, "Aspire 5", "preto", 5000, 2.5, 65));
-        tecnologias.add(new Tecnologia(002, "Alienware", "preto fosco", 9000, 3.1, 72));
-        tecnologias.add(new Tecnologia(003, "Book2", "cinza espacial", 3000, 1.7, 55));
+
+    }
+
+    @PostConstruct
+    public void initData(){
+        tecnologias.add(new Tecnologia(1, "Aspire 5", "preto", 5000, 2.5, 65));
+        tecnologias.add(new Tecnologia(2, "Alienware", "preto fosco", 9000, 3.1, 72));
+        tecnologias.add(new Tecnologia(3, "Book2", "cinza espacial", 3000, 1.7, 55));
 
     }
 

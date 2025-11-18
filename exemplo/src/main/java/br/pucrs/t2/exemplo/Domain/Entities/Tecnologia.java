@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Tecnologia {
+    @Id
     private long id;
     private String modelo;
     private String descricao;

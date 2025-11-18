@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Participante {
+    @Id
     private long cod;
     private String nome;
 
