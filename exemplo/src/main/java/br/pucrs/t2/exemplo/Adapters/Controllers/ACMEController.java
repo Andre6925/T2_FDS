@@ -57,7 +57,7 @@ public class ACMEController {
     
     @PostMapping("/novatecnologia")
     public boolean addTecnologia(@RequestBody TecnologiaDTO dto) {
-        return AddTechUC.execute(dto);
+        return AddTechUC.execute(dto); 
     }
     
 

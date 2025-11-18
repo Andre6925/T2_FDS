@@ -10,7 +10,7 @@ public class VendaDTO {
 
     public VendaDTO(Venda venda) {
         this.num = venda.getNum();
-        this.tecnologia = new TecnologiaDTO(venda.getTecnologia());
+        this.tecnologia = new TecnologiaDTO();
         this.comprador = new CompradorDTO(venda.getComprador());
     }
 }

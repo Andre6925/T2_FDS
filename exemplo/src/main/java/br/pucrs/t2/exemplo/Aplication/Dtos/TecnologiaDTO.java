@@ -19,10 +19,8 @@ public class TecnologiaDTO {
         this.temperatura = temperatura;
     }
 
-    public TecnologiaDTO(Tecnologia tecnologia) {
-        //TODO Auto-generated constructor stub
-    }
-
+    public TecnologiaDTO() {}
+    
     public long getId() {
         return id;
     }

@@ -10,8 +10,7 @@ public class Comprador{
     private String pais;
     private String email;
 
-    public Comprador(){
-    }
+    public Comprador() {}
 
     public Comprador(String pais, String email){
         this.pais = pais;
