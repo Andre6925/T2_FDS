@@ -3,6 +3,8 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 import java.sql.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Venda{
@@ -10,8 +12,9 @@ public class Venda{
     private long num;
     private Date data;
     private double valorFinal;
-
+    @OneToOne
     private Tecnologia tecnologia;
+    @ManyToOne
     private Comprador comprador;
 
     public Venda(int i, java.util.Date date, double d){}

@@ -5,10 +5,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import br.pucrs.t2.exemplo.Domain.Entities.Venda;
 import br.pucrs.t2.exemplo.Domain.Persistence.IVendaRepository;
 import jakarta.annotation.PostConstruct;
-
+@Repository
 public class VendaRepoMemo implements IVendaRepository {
     private final List<Venda> vendas = new ArrayList<>();
 

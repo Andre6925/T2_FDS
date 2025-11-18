@@ -3,6 +3,7 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+
 @Entity
 public class Comprador{
     @Id
