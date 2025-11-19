@@ -1,4 +1,4 @@
-package br.pucrs.t2.exemplo.Aplication.Usecases;
+package br.pucrs.t2.exemplo.Aplication.Usecases.tecnologia;
 
 import org.springframework.stereotype.Service;
 
@@ -32,7 +32,8 @@ public class AddTechUC {
             dto.getDescricao(),
             dto.getValorBase(),
             dto.getPeso(),
-            dto.getTemperatura()
+            dto.getTemperatura(),
+            dto.getFornecedor()
         );
 
         return tecnologiaRepo.addTecnologia(newTech);

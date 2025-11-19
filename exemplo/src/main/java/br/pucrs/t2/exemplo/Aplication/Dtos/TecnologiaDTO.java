@@ -1,5 +1,6 @@
 package br.pucrs.t2.exemplo.Aplication.Dtos;
 
+import br.pucrs.t2.exemplo.Domain.Entities.Fornecedor;
 import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
 
 public class TecnologiaDTO {
@@ -9,14 +10,16 @@ public class TecnologiaDTO {
     private double valorBase;
     private double peso;
     private double temperatura;
+    private Fornecedor fornecedor;
 
-    public TecnologiaDTO(Long id, String modelo, String descricao, double valorBase, double peso, double temperatura){
+    public TecnologiaDTO(Long id, String modelo, String descricao, double valorBase, double peso, double temperatura, Fornecedor fornecedor){
         this.id = id;
         this.modelo = modelo;
         this.descricao = descricao;
         this.valorBase = valorBase;
         this.peso = peso;
         this.temperatura = temperatura;
+        this.fornecedor = fornecedor;
     }
 
     public TecnologiaDTO(Tecnologia tecnologia) {
@@ -26,7 +29,8 @@ public class TecnologiaDTO {
             tecnologia.getDescricao(),
             tecnologia.getValorBase(),
             tecnologia.getPeso(),
-            tecnologia.getTemperatura()
+            tecnologia.getTemperatura(), 
+            tecnologia.getFornecedor()
         );
 
     }
@@ -51,7 +55,10 @@ public class TecnologiaDTO {
     public Double getTemperatura() { return temperatura; }
     public void setTemperatura(Double temperatura) { this.temperatura = temperatura; }
 
+    public Fornecedor getFornecedor() { return fornecedor; }
+    public void setFornecedor(Fornecedor fornecedor) { this.fornecedor = fornecedor; }
+
     public static TecnologiaDTO fromTecnologia(Tecnologia tecnologia){
-        return new TecnologiaDTO(tecnologia.getId(), tecnologia.getModelo(), tecnologia.getDescricao(), tecnologia.getValorBase(), tecnologia.getPeso(), tecnologia.getTemperatura());
+        return new TecnologiaDTO(tecnologia.getId(), tecnologia.getModelo(), tecnologia.getDescricao(), tecnologia.getValorBase(), tecnologia.getPeso(), tecnologia.getTemperatura(), tecnologia.getFornecedor());
     }
 }

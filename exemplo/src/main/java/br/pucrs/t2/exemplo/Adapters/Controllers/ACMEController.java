@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.pucrs.t2.exemplo.Aplication.Dtos.TecnologiaDTO;
-import br.pucrs.t2.exemplo.Aplication.Usecases.AddTechUC;
-import br.pucrs.t2.exemplo.Aplication.Usecases.FindTechById;
+import br.pucrs.t2.exemplo.Aplication.Usecases.tecnologia.AddTechUC;
+import br.pucrs.t2.exemplo.Aplication.Usecases.tecnologia.FindTechById;
 import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
 import br.pucrs.t2.exemplo.Domain.Entities.Venda;
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;

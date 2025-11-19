@@ -2,6 +2,7 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Tecnologia {
@@ -12,19 +13,22 @@ public class Tecnologia {
     private double valorBase;
     private double peso;
     private double temperatura;
+    @ManyToOne
+    private Fornecedor fornecedor;
 
 
     public Tecnologia(){
 
     }
 
-    public Tecnologia(long id, String modelo, String descricao, double valorBase, double peso, double temperatura){
+    public Tecnologia(long id, String modelo, String descricao, double valorBase, double peso, double temperatura, Fornecedor fornecedor){
         this.id = id;
         this.modelo = modelo;
         this.descricao = descricao;
         this.valorBase = valorBase;
         this.peso = peso;
         this.temperatura = temperatura;
+        this.fornecedor = fornecedor;
     }
 
     //Fazer especificações 
@@ -77,10 +81,18 @@ public class Tecnologia {
         this.temperatura = temperatura;
     }
 
+    public Fornecedor getFornecedor(){
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor){
+        this.fornecedor = fornecedor;
+    }
+
     @Override
     public String toString() {
         return "Tecnologia [id=" + id + ", modelo=" + modelo + ", descricao=" + descricao + ", valorBase=" + valorBase
-                + ", peso=" + peso + ", temperatura=" + temperatura + "]";
+                + ", peso=" + peso + ", temperatura=" + temperatura + ", fornecedor=" + fornecedor + "]";
     }
 
     

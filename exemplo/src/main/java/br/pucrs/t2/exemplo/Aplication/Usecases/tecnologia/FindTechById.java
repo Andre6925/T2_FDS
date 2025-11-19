@@ -1,4 +1,4 @@
-package br.pucrs.t2.exemplo.Aplication.Usecases;
+package br.pucrs.t2.exemplo.Aplication.Usecases.tecnologia;
 
 import org.springframework.stereotype.Service;
 
