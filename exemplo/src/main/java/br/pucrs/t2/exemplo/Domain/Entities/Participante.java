@@ -3,15 +3,18 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 import jakarta.persistence.*;
 
 @Entity
-public class Participante {
+public abstract class Participante {
     @Id
-    private long cod;
+    private Long cod;
     private String nome;
 
-    public Participante(long cod, String nome){
+    
+    public Participante(Long cod, String nome){
         this.cod = cod;
         this.nome = nome;
     }
+
+    public Participante() {}
 
     public long getCod() {
         return cod;

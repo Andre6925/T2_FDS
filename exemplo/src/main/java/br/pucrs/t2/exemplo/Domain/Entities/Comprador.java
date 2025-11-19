@@ -5,14 +5,23 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Comprador{
+public class Comprador extends Participante{
     @Id
     private String pais;
     private String email;
 
-    public Comprador() {}
+    public Comprador() {
+        super(); 
+    }
 
-    public Comprador(String pais, String email){
+    public Comprador(Long cod, String nome, String pais, String email){
+        super(cod, nome);
+        this.pais = pais;
+        this.email = email;
+    }
+
+    public Comprador(String nome, String pais, String email){
+        super(null , nome);
         this.pais = pais;
         this.email = email;
     }
