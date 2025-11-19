@@ -1,9 +1,11 @@
 package br.pucrs.t2.exemplo.Aplication.Usecases;
 
+import org.springframework.stereotype.Service;
+
 import br.pucrs.t2.exemplo.Aplication.Dtos.TecnologiaDTO;
 import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
-
+@Service
 public class AddTechUC {
     
     private final ITecnologiaRepository tecnologiaRepo;
@@ -13,12 +15,17 @@ public class AddTechUC {
     }
 
     public boolean execute(TecnologiaDTO dto) {
-        if (dto == null || dto.getId() <= 0) {
+        
+        if (dto == null || dto.getId() == null || dto.getId() <= 0) {       
             return false;
         }
-        if (tecnologiaRepo.getTecnologiaById(dto.getId()) != null) {
+
+        // verificar duplicação correta
+        if (tecnologiaRepo.getTecnologiaById(dto.getId()).isPresent()) {
             return false;
         }
+
+        // Usa o ID enviado pelo cliente
         Tecnologia newTech = new Tecnologia(
             dto.getId(),
             dto.getModelo(),

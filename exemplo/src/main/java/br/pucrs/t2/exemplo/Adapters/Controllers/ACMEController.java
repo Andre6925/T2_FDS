@@ -1,6 +1,7 @@
 package br.pucrs.t2.exemplo.Adapters.Controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +28,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/acmetech")
 public class ACMEController {
+    private final AddTechUC addTechUC;
     private final FindTechById findTechById;
     private ITecnologiaRepository tecnologia;
     private IVendaRepository venda;
 
     @Autowired
-    public ACMEController(FindTechById findTechById, ITecnologiaRepository tecnologia){
+    public ACMEController(FindTechById findTechById, ITecnologiaRepository tecnologia, AddTechUC addTechUC){
         this.findTechById = findTechById;
         this.tecnologia = tecnologia; 
+        this.addTechUC = addTechUC;
         //var tecnologiaRepo = new br.pucrs.t2.exemplo.Infra.TecnologiaRepoMemo();
     }
 
@@ -50,13 +53,13 @@ public class ACMEController {
     }
     
     @GetMapping("/tecnologiabyid/{id}")
-    public Tecnologia getTecnologiaById(@PathVariable long id) {
+    public Optional<Tecnologia> getTecnologiaById(@PathVariable long id) {
         return tecnologia.getTecnologiaById(id);
     }
     
     @PostMapping("/novatecnologia")
     public boolean addTecnologia(@RequestBody TecnologiaDTO dto) {
-        return AddTechUC.execute(dto); 
+        return addTechUC.execute(dto); 
     }
     
 

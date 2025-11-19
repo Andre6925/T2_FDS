@@ -15,7 +15,10 @@ public class FindTechById {
     }
 
     public TecnologiaDTO execute(long id){
-        Tecnologia tecnologia = tecnologiaRepo.getTecnologiaById(id);
-        return tecnologia == null ? null : new TecnologiaDTO(tecnologia);
+         Tecnologia tecnologia = tecnologiaRepo.getTecnologiaById(id)
+                .orElseThrow(() -> new RuntimeException("Tecnologia não encontrada"));
+
+        return new TecnologiaDTO(tecnologia);
+
     }
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
 import jakarta.annotation.PostConstruct;
@@ -32,18 +33,18 @@ public class TecnologiaRepoMemo implements ITecnologiaRepository {
     }
 
     @Override
-    public Tecnologia getTecnologiaById(long id) {
+    public Optional<Tecnologia> getTecnologiaById(long id) {
         return tecnologias.stream()
-                .filter(t -> t.getId() == id)
-                .findFirst()
-                .orElse(null);
+            .filter(t -> t.getId() == id)
+            .findFirst();
     }
 
     @Override
     public boolean addTecnologia(Tecnologia tecnologia) {
-        if (getTecnologiaById(tecnologia.getId()) != null){
+        if (getTecnologiaById(tecnologia.getId()).isPresent()) {
             return false;
         }
+
         return tecnologias.add(tecnologia);
     }
 }
