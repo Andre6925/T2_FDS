@@ -7,7 +7,7 @@ import java.util.Optional;
 import br.pucrs.t2.exemplo.Domain.Entities.Fornecedor;
 
 public interface IFornecedorRepository {
+    List<Fornecedor> getFornecedorById(Long cod);
     Optional<Fornecedor> getFornecedores();
-    List<Fornecedor> getFornecedorById(Date dataFundacao);
     boolean addFornecedor(Fornecedor fornecedor);
 }
