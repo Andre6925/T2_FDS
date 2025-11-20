@@ -3,8 +3,8 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 import java.sql.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Venda{
@@ -12,20 +12,24 @@ public class Venda{
     private long num;
     private Date data;
     private double valorFinal;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "tecnologia_id")
     private Tecnologia tecnologia;
     @ManyToOne
+    @JoinColumn(name = "comprador_cod")
     private Comprador comprador;
+    private boolean removida;
 
-    public Venda(int i, java.util.Date date, double d){}
+    public Venda(){}
 
     public Venda(long num, Date data, double valorFinal, 
-                 Tecnologia tecnologia, Comprador comprador) {
+                 Tecnologia tecnologia, Comprador comprador, boolean removida) {
         this.num = num;
         this.data = data;
         this.valorFinal = valorFinal;
         this.tecnologia = tecnologia;
         this.comprador = comprador;
+        this.removida = removida;
     }
 
     public long getNum() {
@@ -47,9 +51,38 @@ public class Venda{
     public Comprador getComprador() {
         return comprador;
     }
+    
+    public boolean isRemovida() {
+        return removida;
+    } 
+    
+    public void setNum(long num) {
+        this.num = num;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public void setValorFinal(double valorFinal) {
+        this.valorFinal = valorFinal;
+    }
+
+    public void setTecnologia(Tecnologia tecnologia) {
+        this.tecnologia = tecnologia;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public void setRemovida(boolean removida) {
+        this.removida = removida;
+    }
 
     @Override
     public String toString() {
         return "Venda: num=" + this.num + ", data=" + this.data + ", valor final=" + this.valorFinal + "]";
-    } 
+    }
+    
 }
