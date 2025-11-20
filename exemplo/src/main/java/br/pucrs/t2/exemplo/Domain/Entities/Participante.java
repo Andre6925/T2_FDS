@@ -2,21 +2,21 @@ package br.pucrs.t2.exemplo.Domain.Entities;
 
 import jakarta.persistence.*;
 
-@Entity
+@MappedSuperclass
 public abstract class Participante {
     @Id
     private Long cod;
     private String nome;
 
+    public Participante() {}
     
     public Participante(Long cod, String nome){
         this.cod = cod;
         this.nome = nome;
     }
 
-    public Participante() {}
 
-    public long getCod() {
+    public Long getCod() {
         return cod;
     }
 

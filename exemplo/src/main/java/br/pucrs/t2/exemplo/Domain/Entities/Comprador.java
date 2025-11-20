@@ -1,14 +1,16 @@
 package br.pucrs.t2.exemplo.Domain.Entities;
 
+import java.util.List;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 
 @Entity
 public class Comprador extends Participante{
-    @Id
     private String pais;
     private String email;
+    @OneToMany(mappedBy = "comprador")
+    private List<Venda> compras;
 
     public Comprador() {
         super(); 
