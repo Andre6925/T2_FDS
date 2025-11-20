@@ -1,64 +1,92 @@
 package br.pucrs.t2.exemplo.Aplication.Dtos;
 
-import br.pucrs.t2.exemplo.Domain.Entities.Fornecedor;
-import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
-
 public class TecnologiaDTO {
-    private Long id;
+
+    private long id;
     private String modelo;
     private String descricao;
     private double valorBase;
     private double peso;
     private double temperatura;
-    private Fornecedor fornecedor;
+    private long fornecedorCod;
+    private String fornecedorNome;
 
-    public TecnologiaDTO(Long id, String modelo, String descricao, double valorBase, double peso, double temperatura, Fornecedor fornecedor){
+    public TecnologiaDTO() {}
+
+    public TecnologiaDTO(long id, String modelo, String descricao,
+                         double valorBase, double peso, double temperatura,
+                         long fornecedorCod, String fornecedorNome) {
         this.id = id;
         this.modelo = modelo;
         this.descricao = descricao;
         this.valorBase = valorBase;
         this.peso = peso;
         this.temperatura = temperatura;
-        this.fornecedor = fornecedor;
+        this.fornecedorCod = fornecedorCod;
+        this.fornecedorNome = fornecedorNome;
     }
 
-    public TecnologiaDTO(Tecnologia tecnologia) {
-        this(
-            tecnologia.getId(),
-            tecnologia.getModelo(),
-            tecnologia.getDescricao(),
-            tecnologia.getValorBase(),
-            tecnologia.getPeso(),
-            tecnologia.getTemperatura(), 
-            tecnologia.getFornecedor()
-        );
-
+    public long getId() {
+        return id;
     }
-    
-    public TecnologiaDTO() {}
-    
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
-    public String getModelo() { return modelo; }
-    public void setModelo(String modelo) { this.modelo = modelo; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    public String getDescricao() { return descricao; }
-    public void setDescricao(String descricao) { this.descricao = descricao; }
+    public String getModelo() {
+        return modelo;
+    }
 
-    public Double getValorBase() { return valorBase; }
-    public void setValorBase(Double valorBase) { this.valorBase = valorBase; }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-    public Double getPeso() { return peso; }
-    public void setPeso(Double peso) { this.peso = peso; }
+    public String getDescricao() {
+        return descricao;
+    }
 
-    public Double getTemperatura() { return temperatura; }
-    public void setTemperatura(Double temperatura) { this.temperatura = temperatura; }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-    public Fornecedor getFornecedor() { return fornecedor; }
-    public void setFornecedor(Fornecedor fornecedor) { this.fornecedor = fornecedor; }
+    public double getValorBase() {
+        return valorBase;
+    }
 
-    public static TecnologiaDTO fromTecnologia(Tecnologia tecnologia){
-        return new TecnologiaDTO(tecnologia.getId(), tecnologia.getModelo(), tecnologia.getDescricao(), tecnologia.getValorBase(), tecnologia.getPeso(), tecnologia.getTemperatura(), tecnologia.getFornecedor());
+    public void setValorBase(double valorBase) {
+        this.valorBase = valorBase;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getTemperatura() {
+        return temperatura;
+    }
+
+    public void setTemperatura(double temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    public long getFornecedorCod() {
+        return fornecedorCod;
+    }
+
+    public void setFornecedorCod(long fornecedorCod) {
+        this.fornecedorCod = fornecedorCod;
+    }
+
+    public String getFornecedorNome() {
+        return fornecedorNome;
+    }
+
+    public void setFornecedorNome(String fornecedorNome) {
+        this.fornecedorNome = fornecedorNome;
     }
 }

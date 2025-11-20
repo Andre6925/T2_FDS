@@ -95,5 +95,7 @@ public class Tecnologia {
                 + ", peso=" + peso + ", temperatura=" + temperatura + ", fornecedor=" + fornecedor + "]";
     }
 
+   
+
     
 }
