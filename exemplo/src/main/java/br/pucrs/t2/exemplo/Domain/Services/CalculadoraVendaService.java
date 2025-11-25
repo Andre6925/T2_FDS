@@ -3,7 +3,7 @@ package br.pucrs.t2.exemplo.Domain.Services;
 import org.springframework.stereotype.Service;
 import br.pucrs.t2.exemplo.Domain.Entities.Venda;
 
-@Service
+@Service 
 public class CalculadoraVendaService {
     
     public double calcularValorFinal(Venda venda, long quantidadeVendasAnteriores){

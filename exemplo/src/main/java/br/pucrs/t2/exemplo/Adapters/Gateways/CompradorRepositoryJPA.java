@@ -1,5 +1,8 @@
 package br.pucrs.t2.exemplo.Adapters.Gateways;
 
-public class CompradorRepositoryJPA {
-    
+import org.springframework.data.repository.CrudRepository;
+import br.pucrs.t2.exemplo.Domain.Entities.Comprador;
+
+public interface CompradorRepositoryJPA extends CrudRepository<Comprador, Long>{
+    boolean existByCod(Long cod);    
 }
