@@ -2,7 +2,7 @@ package br.pucrs.t2.exemplo.Aplication.Dtos;
 
 public class TecnologiaDTO {
 
-    private long id;
+    private Long id;
     private String modelo;
     private String descricao;
     private double valorBase;

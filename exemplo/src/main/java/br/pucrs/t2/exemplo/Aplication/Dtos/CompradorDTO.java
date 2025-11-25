@@ -1,18 +1,19 @@
 package br.pucrs.t2.exemplo.Aplication.Dtos;
 
-import br.pucrs.t2.exemplo.Domain.Entities.Comprador;
-
 public class CompradorDTO {
+
     private long cod;
     private String nome;
-    private String endereco;
+    private String pais;
+    private String email;
 
     public CompradorDTO() {}
 
-    public CompradorDTO(long cod, String nome, String endereco) {
+    public CompradorDTO(long cod, String nome, String pais, String email) {
         this.cod = cod;
         this.nome = nome;
-        this.endereco = endereco; 
+        this.pais = pais;
+        this.email = email;
     }
 
     public long getCod() {
@@ -31,13 +32,19 @@ public class CompradorDTO {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getPais() {
+        return pais;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setPais(String pais) {
+        this.pais = pais;
     }
-    
-} 
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}

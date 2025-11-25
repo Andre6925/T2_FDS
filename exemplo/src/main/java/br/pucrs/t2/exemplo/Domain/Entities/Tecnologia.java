@@ -17,7 +17,7 @@ public class Tecnologia {
     private Fornecedor fornecedor;
 
 
-    public Tecnologia(){
+    public Tecnologia(long l, String string, String string2, double d, double e, double f, String string3){
 
     }
 

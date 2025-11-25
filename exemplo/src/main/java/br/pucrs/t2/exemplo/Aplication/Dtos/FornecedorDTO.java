@@ -1,17 +1,21 @@
 package br.pucrs.t2.exemplo.Aplication.Dtos;
 
 import br.pucrs.t2.exemplo.Domain.Entities.AreaFornecedor;
+import java.sql.Date;
 
 public class FornecedorDTO {
+
     private long cod;
     private String nome;
+    private Date dataFundacao;
     private AreaFornecedor area;
 
     public FornecedorDTO() {}
 
-    public FornecedorDTO(long cod, String nome, AreaFornecedor area) {
+    public FornecedorDTO(long cod, String nome, Date dataFundacao, AreaFornecedor area) {
         this.cod = cod;
         this.nome = nome;
+        this.dataFundacao = dataFundacao;
         this.area = area;
     }
 
@@ -29,6 +33,14 @@ public class FornecedorDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Date getDataFundacao() {
+        return dataFundacao;
+    }
+
+    public void setDataFundacao(Date dataFundacao) {
+        this.dataFundacao = dataFundacao;
     }
 
     public AreaFornecedor getArea() {

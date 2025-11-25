@@ -7,6 +7,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Comprador extends Participante{
+    
     private String pais;
     private String email;
     @OneToMany(mappedBy = "comprador")

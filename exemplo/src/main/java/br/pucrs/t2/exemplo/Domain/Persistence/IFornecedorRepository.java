@@ -1,6 +1,5 @@
 package br.pucrs.t2.exemplo.Domain.Persistence;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 

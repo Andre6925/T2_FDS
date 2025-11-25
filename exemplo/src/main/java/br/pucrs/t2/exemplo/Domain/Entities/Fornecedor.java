@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Fornecedor extends Participante {
+    
     private Date dataFundacao;
     @Enumerated(EnumType.STRING)
     private AreaFornecedor area;
@@ -44,5 +45,14 @@ public class Fornecedor extends Participante {
 
     public void setArea(AreaFornecedor area) {
         this.area = area;
+    }
+
+     public List<Tecnologia> getTecnologias() {
+        return tecnologias;
+    }
+
+     public void addTecnologia(Tecnologia tecnologia) {
+        tecnologias.add(tecnologia);
+        tecnologia.setFornecedor(this);
     }
 }

@@ -33,7 +33,8 @@ public class AddTechUC {
             dto.getValorBase(),
             dto.getPeso(),
             dto.getTemperatura(),
-            dto.getFornecedor()
+            dto.getFornecedorNome(),
+            
         );
 
         return tecnologiaRepo.addTecnologia(newTech);
