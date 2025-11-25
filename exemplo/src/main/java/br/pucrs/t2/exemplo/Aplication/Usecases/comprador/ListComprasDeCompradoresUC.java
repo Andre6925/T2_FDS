@@ -9,11 +9,11 @@ import br.pucrs.t2.exemplo.Aplication.Dtos.VendaDTO;
 import br.pucrs.t2.exemplo.Domain.Persistence.IVendaRepository;
 
 @Service
-public class ListComprasDeCompradores {
+public class ListComprasDeCompradoresUC {
     
     private final IVendaRepository vendaRepository;
 
-    public ListComprasDeCompradores(IVendaRepository vendaRepository){
+    public ListComprasDeCompradoresUC(IVendaRepository vendaRepository){
         this.vendaRepository = vendaRepository;
     }
 

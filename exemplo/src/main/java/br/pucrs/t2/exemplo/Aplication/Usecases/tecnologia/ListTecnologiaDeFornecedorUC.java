@@ -9,11 +9,11 @@ import br.pucrs.t2.exemplo.Aplication.Dtos.TecnologiaDTO;
 import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
 
 @Service
-public class ListTecnologiaDeFornecedor {
+public class ListTecnologiaDeFornecedorUC {
     
     private ITecnologiaRepository tecnologiaRepository;
 
-    public ListTecnologiaDeFornecedor(ITecnologiaRepository tecnologiaRepository){
+    public ListTecnologiaDeFornecedorUC(ITecnologiaRepository tecnologiaRepository){
         this.tecnologiaRepository = tecnologiaRepository;
     }
 
