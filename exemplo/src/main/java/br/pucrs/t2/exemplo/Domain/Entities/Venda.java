@@ -32,6 +32,17 @@ public class Venda{
         this.removida = removida;
     }
 
+    public Venda(long num, Tecnologia tecnologia,
+                Comprador comprador, boolean removida) {
+        this.num = num;
+        this.tecnologia = tecnologia;
+        this.comprador = comprador;
+        this.removida = removida;
+        this.data = new Date(System.currentTimeMillis());
+        this.valorFinal = 0.0;
+    }
+
+
     public long getNum() {
         return num;
     }
