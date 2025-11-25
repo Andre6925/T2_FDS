@@ -18,7 +18,7 @@ public class ListComprasDeCompradorUC {
     }
 
     public List<VendaDTO> execute(long codComprador){
-        return vendaRepository.getVendaByCompradorCod(codComprador).stream()
+        return vendaRepository.getVendasByComprador(codComprador).stream()
             .map(v -> new VendaDTO(
                 v.getNum(),
                 v.getTecnologia().getId(),

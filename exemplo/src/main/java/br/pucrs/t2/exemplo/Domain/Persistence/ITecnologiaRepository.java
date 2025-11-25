@@ -9,6 +9,6 @@ import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
 public interface ITecnologiaRepository {
     Optional<Tecnologia> getTecnologiaById(long id);
     List<Tecnologia> getTecnologias();
-    //List<Tecnologia> getTechByFornecedorCod(Long codFornecedor);
+    List<Tecnologia> getTechByFornecedorCod(Long codFornecedor);
     boolean addTecnologia(Tecnologia tecnologia);
 }

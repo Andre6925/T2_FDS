@@ -25,7 +25,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
 
 
 
@@ -35,7 +38,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/acmetech")
 public class ACMEController {
     private final FindTecnologiaByIdUC findTecnologiaByIdUC;
-    //private final ListTecnologiasUC listTecnologiasUC;
+    private final ListTecnologiaUC listTecnologiaUC;
     private final AddTecnolgiaUC addTecnologiaUC;
     private final ListFornecedoresUC listFornecedoresUC;
     private final AddCompradorUC addCompradorUC;
@@ -48,6 +51,7 @@ public class ACMEController {
     private final ListTecnologiaDeFornecedorUC listTecnologiasDeFornecedorUC;
     private final RemoveVendaLogicaUC removeVendaLogicaUC;
     private final ListComprasDeCompradorUC listComprasDeCompradorUC;
+    
 
     @Autowired
      public ACMEController(FindTecnologiaByIdUC findTecnologiaByIdUC,
@@ -61,11 +65,11 @@ public class ACMEController {
                           FindVendaByNumUC findVendaByNumUC,
                           ListVendasUC listVendasUC,
                           GetValorFinalVendaUC getValorFinalVendaUC,
-                          ListComprasDeCompradoresUC listComprasDeCompradorUC,
+                          ListComprasDeCompradorUC listComprasDeCompradorUC,
                           ListTecnologiaDeFornecedorUC listTecnologiasDeFornecedorUC,
                           RemoveVendaLogicaUC removeVendaLogicaUC) {
         this.findTecnologiaByIdUC = findTecnologiaByIdUC;
-        this.listTecnologiasUC = listTecnologiasUC;
+        this.listTecnologiaUC = listTecnologiaUC;
         this.addTecnologiaUC = addTecnologiaUC;
         this.listFornecedoresUC = listFornecedoresUC;
         this.addCompradorUC = addCompradorUC;
@@ -127,7 +131,7 @@ public class ACMEController {
     // GET tecnologias
     @GetMapping("/tecnologias")
     public List<TecnologiaDTO> getTecnologias() {
-        return listTecnologiasUC.execute();
+        return listTecnologiaUC.execute();
     }
 
     // GET vendas (inclui removidas)
