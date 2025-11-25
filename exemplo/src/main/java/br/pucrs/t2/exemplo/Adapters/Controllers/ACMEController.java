@@ -34,8 +34,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/acmetech")
 public class ACMEController {
-   private final FindTecnologiaByIdUC findTecnologiaByIdUC;
-    private final ListTecnologiaUC listTecnologiaUC;
+    private final FindTecnologiaByIdUC findTecnologiaByIdUC;
+    //private final ListTecnologiasUC listTecnologiasUC;
     private final AddTecnolgiaUC addTecnologiaUC;
     private final ListFornecedoresUC listFornecedoresUC;
     private final AddCompradorUC addCompradorUC;
@@ -45,9 +45,9 @@ public class ACMEController {
     private final FindVendaByNumUC findVendaByNumUC;
     private final ListVendasUC listVendasUC;
     private final GetValorFinalVendaUC getValorFinalVendaUC;
-    private final ListComprasDeComprador listComprasDeCompradorUC;
     private final ListTecnologiaDeFornecedorUC listTecnologiasDeFornecedorUC;
     private final RemoveVendaLogicaUC removeVendaLogicaUC;
+    private final ListComprasDeCompradorUC listComprasDeCompradorUC;
 
     @Autowired
      public ACMEController(FindTecnologiaByIdUC findTecnologiaByIdUC,
@@ -65,7 +65,7 @@ public class ACMEController {
                           ListTecnologiaDeFornecedorUC listTecnologiasDeFornecedorUC,
                           RemoveVendaLogicaUC removeVendaLogicaUC) {
         this.findTecnologiaByIdUC = findTecnologiaByIdUC;
-        this.listTecnologiaUC = listTecnologiaUC;
+        this.listTecnologiasUC = listTecnologiasUC;
         this.addTecnologiaUC = addTecnologiaUC;
         this.listFornecedoresUC = listFornecedoresUC;
         this.addCompradorUC = addCompradorUC;
@@ -86,25 +86,95 @@ public class ACMEController {
         return("Bem-vindo");
     }
 
+     // GET tecnologia por id
+    @GetMapping("/tecnologia/{id}")
+    public ResponseEntity<TecnologiaDTO> getTecnologiaById(@PathVariable long id) {
+        var opt = findTecnologiaByIdUC.execute(id);
+        return opt.map(ResponseEntity::ok)
+                  .orElse(ResponseEntity.notFound().build());
+    }
+
+    // GET venda por número
+    @GetMapping("/venda/{num}")
+    public ResponseEntity<VendaDTO> getVendaByNum(@PathVariable long num) {
+        var opt = findVendaByNumUC.execute(num);
+        return opt.map(ResponseEntity::ok)
+                  .orElse(ResponseEntity.notFound().build());
+    }
+
+    // GET valor final de venda
+    @GetMapping("/vendavalor/{num}")
+    public ResponseEntity<Double> getValorFinalVenda(@PathVariable long num) {
+        double valor = getValorFinalVendaUC.execute(num);
+        if (valor < 0) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(valor);
+    }
+
+    // GET fornecedores
+    @GetMapping("/fornecedores")
+    public List<FornecedorDTO> getFornecedores() {
+        return listFornecedoresUC.execute();
+    }
+
+    // GET compradores
+    @GetMapping("/compradores")
+    public List<CompradorDTO> getCompradores() {
+        return listCompradoresUC.execute();
+    }
+
+    // GET tecnologias
     @GetMapping("/tecnologias")
-    public List<Tecnologia> getTecnologia() {
-        return tecnologia.getTecnologias();
+    public List<TecnologiaDTO> getTecnologias() {
+        return listTecnologiasUC.execute();
     }
-    
-    @GetMapping("/tecnologiabyid/{id}")
-    public Optional<Tecnologia> getTecnologiaById(@PathVariable long id) {
-        return tecnologia.getTecnologiaById(id);
+
+    // GET vendas (inclui removidas)
+    @GetMapping("/vendas")
+    public List<VendaDTO> getVendas() {
+        return listVendasUC.execute();
     }
-    
+
+    // POST nova tecnologia
     @PostMapping("/novatecnologia")
     public boolean addTecnologia(@RequestBody TecnologiaDTO dto) {
-        return addTechUC.execute(dto); 
+        return addTecnologiaUC.execute(dto);
     }
-    
 
-    @GetMapping("/vendabynum/{num}")
-    public Venda getVendaByNum(@PathVariable long num) {
-        return venda.getVendaById(num);
+    // POST novo comprador
+    @PostMapping("/novocomprador")
+    public boolean addComprador(@RequestBody CompradorDTO dto) {
+        return addCompradorUC.execute(dto);
+    }
+
+    // POST nova venda
+    @PostMapping("/novavenda")
+    public boolean addVenda(@RequestBody VendaDTO dto) {
+        return addVendaUC.execute(dto);
+    }
+
+    // GET compras de um comprador
+    @GetMapping("/compras/{codComprador}")
+    public List<VendaDTO> getComprasDeComprador(@PathVariable long codComprador) {
+        return listComprasDeCompradorUC.execute(codComprador);
+    }
+
+    // GET tecnologias de um fornecedor
+    @GetMapping("/fornecedor/{codFornecedor}/tecnologias")
+    public List<TecnologiaDTO> getTecnologiasDeFornecedor(@PathVariable long codFornecedor) {
+        return listTecnologiasDeFornecedorUC.execute(codFornecedor);
+    }
+
+    // DELETE remoção lógica de venda
+    @DeleteMapping("/removervenda/{num}")
+    public boolean removerVenda(@PathVariable long num) {
+        return removeVendaLogicaUC.execute(num);
+    }
+
+    // PUT alterar comprador (exceto código)
+    @PutMapping("/alterarcomprador")
+    public boolean alterarComprador(@RequestBody CompradorDTO dto) {
+        return updateCompradorUC.execute(dto);
     }
 }
-    
