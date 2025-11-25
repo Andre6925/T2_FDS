@@ -23,7 +23,7 @@ public class AddVendaUC {
     }
 
     public boolean execute(VendaDTO dto) {
-        if (vendaRepository.getVendaById(dto.getNum()).isPresent()) {
+        if (vendaRepository.getVendaByNum(dto.getNum()).isPresent()) {
             return false;
         }
         var tecOpt = tecnologiaRepository.getTecnologiaById(dto.getTecnologiaId());

@@ -18,7 +18,7 @@ public class GetValorFinalVendaUC {
     }
 
     public double execute(long num) {
-        var vendaOpt = vendaRepository.getVendaById(num);
+        var vendaOpt = vendaRepository.getVendaByNum(num);
         if (vendaOpt.isEmpty()) {
             return -1.0;
         }

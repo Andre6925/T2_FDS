@@ -11,5 +11,6 @@ public interface IVendaRepository {
     boolean addVenda(Venda venda);
     boolean removerVenda(long num);
     List<Venda> getVendasByComprador(long codComprador);
+    long countByCompradorCod(Long cod);
 }
 

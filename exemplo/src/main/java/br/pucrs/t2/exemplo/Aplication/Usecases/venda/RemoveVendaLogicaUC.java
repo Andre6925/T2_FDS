@@ -13,7 +13,7 @@ public class RemoveVendaLogicaUC {
     }
 
     public boolean execute(long num) {
-        var opt = vendaRepository.getVendaById(num);
+        var opt = vendaRepository.getVendaByNum(num);
         if (opt.isEmpty()) return false;
 
         var venda = opt.get();

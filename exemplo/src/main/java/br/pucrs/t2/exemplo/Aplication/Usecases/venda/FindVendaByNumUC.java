@@ -16,7 +16,7 @@ public class FindVendaByNumUC {
     }
 
     public Optional<VendaDTO> execute(long num) {
-        return vendaRepository.getVendaById(num)
+        return vendaRepository.getVendaByNum(num)
                 .map(v -> new VendaDTO(
                         v.getNum(),
                         v.getTecnologia().getId(),
