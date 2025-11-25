@@ -6,6 +6,10 @@ import java.util.Optional;
 import br.pucrs.t2.exemplo.Domain.Entities.Venda;
 
 public interface IVendaRepository {
+<<<<<<< HEAD
+=======
+    Optional<Venda> getVendaById(long num);
+>>>>>>> origin/main
     List<Venda> getVendas();
     Optional<Venda> getVendaByNum(long num);
     boolean addVenda(Venda venda);
