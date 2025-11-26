@@ -55,4 +55,10 @@ public class TecnologiaRepoMemo implements ITecnologiaRepository {
         tecnologias.add(tecnologia);
         return true;
     }
+
+    @Override
+    public List<Tecnologia> getTechByFornecedorCod(Long codFornecedor) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTechByFornecedorCod'");
+    }
 }

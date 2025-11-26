@@ -74,4 +74,10 @@ public class VendaRepoMemo implements IVendaRepository {
         return result;
     }
 
+    @Override
+    public long countByCompradorCod(Long cod) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'countByCompradorCod'");
+    }
+
 }

@@ -1,17 +1,12 @@
 package br.pucrs.t2.exemplo.Adapters.Controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.pucrs.t2.exemplo.Aplication.Dtos.TecnologiaDTO;
-import br.pucrs.t2.exemplo.Domain.Entities.Tecnologia;
-import br.pucrs.t2.exemplo.Domain.Entities.Venda;
-import br.pucrs.t2.exemplo.Domain.Persistence.ITecnologiaRepository;
-import br.pucrs.t2.exemplo.Domain.Persistence.IVendaRepository;
 import br.pucrs.t2.exemplo.Aplication.Dtos.CompradorDTO;
 import br.pucrs.t2.exemplo.Aplication.Dtos.FornecedorDTO;
 import br.pucrs.t2.exemplo.Aplication.Dtos.VendaDTO;
@@ -53,7 +48,6 @@ public class ACMEController {
     private final ListComprasDeCompradorUC listComprasDeCompradorUC;
     
 
-    @Autowired
      public ACMEController(FindTecnologiaByIdUC findTecnologiaByIdUC,
                           ListTecnologiaUC listTecnologiaUC,
                           AddTecnolgiaUC addTecnologiaUC,
