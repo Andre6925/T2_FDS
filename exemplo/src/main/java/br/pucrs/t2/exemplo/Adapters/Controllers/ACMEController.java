@@ -78,14 +78,14 @@ public class ACMEController {
         this.removeVendaLogicaUC = removeVendaLogicaUC;
     }
 
-    @GetMapping("")
+    @GetMapping("") // funciona
     @CrossOrigin(origins = "*")
     public String mensagem(){
         return("Bem-vindo");
     }
 
      // GET tecnologia por id
-    @GetMapping("/tecnologia/{id}")
+    @GetMapping("/tecnologia/{id}") // funciona
     public ResponseEntity<TecnologiaDTO> getTecnologiaById(@PathVariable long id) {
         var opt = findTecnologiaByIdUC.execute(id);
         return opt.map(ResponseEntity::ok)
@@ -93,7 +93,7 @@ public class ACMEController {
     }
 
     // GET venda por número
-    @GetMapping("/venda/{num}")
+    @GetMapping("/venda/{num}") // funciona
     public ResponseEntity<VendaDTO> getVendaByNum(@PathVariable long num) {
         var opt = findVendaByNumUC.execute(num);
         return opt.map(ResponseEntity::ok)
