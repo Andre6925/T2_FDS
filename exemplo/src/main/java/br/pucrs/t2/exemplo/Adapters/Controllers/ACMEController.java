@@ -147,7 +147,7 @@ public class ACMEController {
     }
 
     // POST nova venda
-    @PostMapping("/novavenda")
+    @PostMapping("/novavenda") // foi
     public boolean addVenda(@RequestBody VendaDTO dto) {
         return addVendaUC.execute(dto);
     }
@@ -159,19 +159,19 @@ public class ACMEController {
     }
 
     // GET tecnologias de um fornecedor
-    @GetMapping("/fornecedor/{codFornecedor}/tecnologias")
+    @GetMapping("/fornecedor/{codFornecedor}/tecnologias") // n funf
     public List<TecnologiaDTO> getTecnologiasDeFornecedor(@PathVariable long codFornecedor) {
         return listTecnologiasDeFornecedorUC.execute(codFornecedor);
     }
 
     // DELETE remoção lógica de venda
-    @DeleteMapping("/removervenda/{num}")
+    @DeleteMapping("/removervenda/{num}") // n funf
     public boolean removerVenda(@PathVariable long num) {
         return removeVendaLogicaUC.execute(num);
     }
 
     // PUT alterar comprador (exceto código)
-    @PutMapping("/alterarcomprador")
+    @PutMapping("/alterarcomprador") // n funci
     public boolean alterarComprador(@RequestBody CompradorDTO dto) {
         return updateCompradorUC.execute(dto);
     }
