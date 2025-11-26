@@ -16,13 +16,13 @@ public class AddCompradorUC {
     }
 
     public boolean execute(CompradorDTO dto) {
-        if (compradorRepository.getCompradorById(dto.getCod()).isEmpty()) {
+        if (compradorRepository.getCompradorById(dto.getCod()).isPresent()) {
             return false;
         }
     
-    Comprador c = new Comprador(dto.getCod(), dto.getNome(), dto.getPais(), dto.getEmail());
-    compradorRepository.addComprador(c);
-    return true;
+        Comprador c = new Comprador(dto.getCod(), dto.getNome(), dto.getPais(), dto.getEmail());
+        compradorRepository.addComprador(c);
+        return true;
 
     }
 }
