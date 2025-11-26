@@ -28,7 +28,7 @@ public class GetValorFinalVendaUC {
                 venda.getComprador().getCod()
         );
 
-        // Desconta a própria venda se já estiver contada:
+      
         if (qtdAnteriores > 0) {
             qtdAnteriores = qtdAnteriores - 1;
         }

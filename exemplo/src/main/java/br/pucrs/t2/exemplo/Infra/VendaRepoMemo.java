@@ -74,9 +74,8 @@ public class VendaRepoMemo implements IVendaRepository {
         return result;
     }
 
-    @Override
+    @Override // método não implementado 
     public long countByCompradorCod(Long cod) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'countByCompradorCod'");
     }
 
