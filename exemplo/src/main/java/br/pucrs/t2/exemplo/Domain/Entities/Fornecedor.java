@@ -13,7 +13,7 @@ public class Fornecedor extends Participante {
     private AreaFornecedor area;
 
     @OneToMany(mappedBy = "fornecedor")
-    private List<Tecnologia> tecnologias;
+    public List<Tecnologia> tecnologias;
 
     
     public Fornecedor(Long cod, String nome, Date dataFundacao, AreaFornecedor area){

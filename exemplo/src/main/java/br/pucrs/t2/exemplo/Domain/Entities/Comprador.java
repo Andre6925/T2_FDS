@@ -11,7 +11,7 @@ public class Comprador extends Participante{
     private String pais;
     private String email;
     @OneToMany(mappedBy = "comprador")
-    private List<Venda> compras;
+    public List<Venda> compras;
 
     public Comprador() {
         super(); 
